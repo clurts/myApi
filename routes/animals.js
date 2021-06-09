@@ -87,16 +87,9 @@ router.get("/animals/:animalId", async function(request, response, next) {
 
 
 router.post("/animals", auth, function(request, response, next) {
-
+    console.log(request.body)
     try {
-        let animal = new Animal({
-            type: request.fields.type,
-            breed: request.fields.breed,
-            name: request.fields.name,
-            age: request.fields.age,
-            sex: request.fields.sex,
-            colors: request.fields.colors
-        })
+        let animal = new Animal(request.body)
         animal.save();
 
         response.status(201);

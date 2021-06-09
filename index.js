@@ -16,7 +16,7 @@ app.use("/", express.static('docs'))
 app.use(cors())
 
 //parse http form data
-app.use(formidable())
+app.use(express.json())
 
 //set up app routes 
 app.use("/api/v1", animals)
